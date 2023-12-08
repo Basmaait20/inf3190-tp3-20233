@@ -15,7 +15,7 @@
 from flask import Flask
 from flask import render_template
 from flask import g
-from .database import Database
+from database import Database
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -38,3 +38,7 @@ def close_connection(exception):
 def form():
     # À remplacer par le contenu de votre choix.
     return render_template('form.html')
+
+
+if __name__ == '__main__':
+    app.run(debug=True)

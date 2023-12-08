@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="js/script.js"></script>
+    </head>    
+    <body>
+        <form>
+            <label for="nom-animal">
+                Nom de l'animal:
+            </label><br>
+            <input 
+                type="text"
+                id="nom-animal"
+                name="nom-animal"
+                onchange="validerNomAnimal()">
+            <br>
+            <p id="nom-animal-erreur"></p><br>
+
+            <label for="age-animal">
+                Âge de l'animal:
+            </label><br>
+            <input 
+                type="number"
+                id="age-animal"
+                name="age-animal"
+                onchange="validerAgeAnimal()">
+            <br>
+            <p id="age-animal-erreur"></p><br>
+        </form>
+    </body>
+</html>
