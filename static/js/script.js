@@ -6,12 +6,12 @@ function validerNomAnimal() {
     var nomAnimal = document.getElementById("nom-animal").value;
     var nomAnimalErreur = document.getElementById("nom-animal-erreur");
 
-    if (nomAnimal.length < 2) {
-        nomAnimalErreur.innerHTML = "Le nom de l'animal doit contenir au moins 2 caractères.";
+    if (nomAnimal.length < 3) {
+        nomAnimalErreur.innerHTML = "Le nom de l'animal doit contenir au moins 3 caractères.";
         return false;
     } 
-    else if (nomAnimal.length > 10) {
-        nomAnimalErreur.innerHTML = "Le nom de l'animal ne peut pas contenir plus de 10 caractères.";
+    else if (nomAnimal.length > 20) {
+        nomAnimalErreur.innerHTML = "Le nom de l'animal ne peut pas contenir plus de 20 caractères.";
         return false;
     }
     else if (nomAnimal === "") {
@@ -38,8 +38,8 @@ function validerAgeAnimal() {
         ageAnimalErreur.innerHTML = "L'âge de l'animal ne peut pas être négatif.";
         return false;
     }
-    else if (ageAnimal > 50) {
-        ageAnimalErreur.innerHTML = "L'âge de l'animal ne peut pas être supérieur à 50 ans.";
+    else if (ageAnimal > 30) {
+        ageAnimalErreur.innerHTML = "L'âge de l'animal ne peut pas être supérieur à 30 ans.";
         return false;
     }
     else if (ageAnimal === "") {
@@ -51,3 +51,114 @@ function validerAgeAnimal() {
         return true;
     }
 }
+
+// fonction pour valider la race
+function validerRace(){
+    var raceAnimal = document.getElementById("raceanimal").value;
+    var msgErreurRace = document.getElementById("erreur-race");
+
+    if(raceAnimal === ""){
+        msgErreurRace.innerHTML = "Le champ de la race ne peut pas etre vide";
+        return false;
+    }else if (raceAnimal.includes(",")){
+        msgErreurRace.innerHTML = "Le champ de la race ne doit pas contenir une virgule.";
+        return false;
+    } else {
+        msgErreurRace.innerHTML = "";
+        return true;
+    }
+}
+   
+//fonction pour valider l'espece
+function validerEspece(){
+        var especeAnimal = document.getElementById("especeanimal").value ;
+        var msgErreurespece = document.getElementById("erreur-espece");
+
+        if(especeAnimal === ""){
+            msgErreurespece.innerHTML = " Veuillez remplir le champ de l'espece de l'animal";
+            return false;
+        } else if (especeAnimal.includes(",")){
+            msgErreurespece.innerHTML = "L'espece ne doit pas contenir une virgule";
+            return false;
+        } else {
+            msgErreurespece.innerHTML =  "";
+            return true;
+        }
+}
+
+//fonction pour valider la description de l'animal
+
+
+function validerDescription(){
+    var description = document.getElementById("descriptionanimal").value;
+    var msgErrDescription = document.getElementById("erreur-description");
+
+    if( description === ""){
+        msgErrDescription.innerHTML = " Veuillez entrer une description de l'animal";
+    } else if (description.includes(",")){
+        msgErrDescription.innerHTML = "La description de l'animal ne doit pas contenir une virgule";
+    } else {
+        msgErrDescription.innerHTML = "";
+    }
+}
+
+// fonction pour valider le courriel
+function validerCourriel(){
+    var courriel = document.getElementById("courrielproprietaire").value;
+    var msgErreurCourriel = document.getElementById("erreur-courriel");
+    const email = new RegExp('^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$') ;
+
+    if (courriel === ""){
+        msgErreurCourriel.innerHTML = "";
+    } else if (!(courriel.test(email))){
+            msgErreurCourriel.innerHTML = "Le courriel ne respecte pas le format valide: example@gmail.com ";
+    } else if (courriel.includes(",")){
+        msgErreurCourriel.innerHTML = "Le champ ne doit pas contenir une virgule"
+    } else {
+        msgErreurCourriel.innerHTML = "";
+    }
+}
+
+//fonction pour valider l'adresse
+function validerAdresse(){
+    var adresse = document.getElementById("adresse-recuperation").value;
+    var msgErrAdresse = document.getElementById.getElementById("erreur-adresse");
+
+    if(adresse === ""){
+        msgErrAdresse.innerHTML="Veuillez ecrire l'adresse de recuperation";
+    } else if(adresse.includes(",")){
+        msgErrAdresse.innerHTML="L'adresse ne doit pas contenir une virgule";
+    } else {
+        msgErrAdresse.innerHTML = "";
+    }
+}
+
+// fonction pour valider la ville
+function validerVille(){
+
+    var ville =document.getElementById("ville").value;
+    var msgErrVille =document.getElementById.getElementById("erreur-adresse");
+    if(ville === ""){
+        msgErrVille.innerHTML="Veuillez remplir le champ de la ville";
+    } else if(ville.includes(",")){
+        msgErrVille.innerHTML= "La ville ne doit pas contenir une virgule";
+    } else {
+        msgErrVille.innerHTML = "";
+    }
+}
+
+//fonction pour valider le code postal
+function validerCodepostal(){
+    var code = document.getElementById("code-postal").value;
+    var codeErreur = document.getElementById("erreur-codepostal");
+    const codepostal =new RegExp('^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$') ;
+
+    if(code === ""){
+        codeErreur.innerHTML = "Le code postal est vide";
+    } else if(!(code.test(codepostal))) {
+        codeErreur.innerHTML="Le code postal ne respecte pas le format valide.";
+    } else {
+        codeErreur.innerHTML = "";
+    }
+}
+

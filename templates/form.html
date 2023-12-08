@@ -15,6 +15,18 @@
                 onchange="validerNomAnimal()">
             <br>
             <p id="nom-animal-erreur"></p><br>
+            <label for="espece">Espece de l'animal : </label>
+            <br>
+            <input type="text" id="especeanimal" name="especeanimal" onchange="validerEspece()">
+            
+            <p id="erreur-espece"></p>
+            <br>
+            <label for="raceanimal">Race de l'animal : </label>
+            <br>
+            <input type="text" id="raceanimal" name="raceanimal" onchange="validerRace()">
+            <br>
+            <p id="erreur-race"></p>
+            <br>
 
             <label for="age-animal">
                 Âge de l'animal:
@@ -26,6 +38,35 @@
                 onchange="validerAgeAnimal()">
             <br>
             <p id="age-animal-erreur"></p><br>
+            <label for="descriptionanimal">Description de l'animal : </label>
+            <br>
+            <input type="text" id="descriptionanimal" name="descriptionanimal" onchange=" validerDescription()">
+        
+            <p id="erreur-description"></p>
+            <br>
+            <label for="courrielproprietaire">Adresse courriel du propriétaire : </label>
+            <br>
+            <input type="text" id="courrielproprietaire" name="courrielproprietaire" onchange="validerCourriel()" placeholder="lina.trivat@gmail.com">
+            
+            <p id="erreur-courriel"></p>
+            <br>
+            <label for="adresse-recuperation">Adresse de recuperation : </label>
+            <br>
+            <input type="text" id="adresse-recuperation" name="adresse-recuperation" placeholder="123 avenue cousineau" onchange="validerAdresse()">
+            
+            <p id="erreur-adresse"></p>
+            <br>
+            <label for="ville">Ville : </label>
+            <br>
+            <input type="text" id="ville" name="ville" placeholder="exemple:Montreal" onchange="validerVille()">
+            <p id="erreur-ville"></p>
+            <br>
+            <label for="code-postal">Code postal : </label>
+            <br>
+            <input type="text" id="code-postal" name="code-postal" placeholder="J2H 4J1" onchange="validerCodepostal()">
+            <p id="erreur-codepostal"></p>
+            <br>
+            <button type="submit">Soumettre</button>
         </form>
     </body>
 </html>
