@@ -129,10 +129,10 @@ function validerAdresse(){
     var msgErrAdresse = document.getElementById("erreur-adresse");
 
     if(adresse === ""){
-        msgErrAdresse.innerHTML="Veuillez ecrire l'adresse de recuperation";
+        msgErrAdresse.innerHTML = "Veuillez ecrire l'adresse de recuperation";
         return false;
     } else if(adresse.includes(",")){
-        msgErrAdresse.innerHTML="L'adresse ne doit pas contenir une virgule";
+        msgErrAdresse.innerHTML = "L'adresse ne doit pas contenir une virgule";
         return false;
     } else {
         msgErrAdresse.innerHTML = "";
@@ -143,14 +143,14 @@ function validerAdresse(){
 // fonction pour valider la ville
 function validerVille(){
 
-    var ville =document.getElementById("ville").value;
-    var msgErrVille =document.getElementById("erreur-adresse");
+    var ville = document.getElementById("ville").value;
+    var msgErrVille = document.getElementById("erreur-ville");
 
     if(ville === ""){
-        msgErrVille.innerHTML="Veuillez remplir le champ de la ville";
+        msgErrVille.innerHTML = "Veuillez remplir le champ de la ville";
         return false;
     } else if(ville.includes(",")){
-        msgErrVille.innerHTML= "La ville ne doit pas contenir une virgule";
+        msgErrVille.innerHTML = "La ville ne doit pas contenir une virgule";
         return false;
     } else {
         msgErrVille.innerHTML = "";
@@ -162,13 +162,13 @@ function validerVille(){
 function validerCodepostal(){
     var code = document.getElementById("code-postal").value;
     var codeErreur = document.getElementById("erreur-codepostal");
-    const codepostal =new RegExp('^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$') ;
+    const codepostal = new RegExp('^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$') ;
 
     if(code === ""){
         codeErreur.innerHTML = "Le code postal est vide";
         return false;
     } else if(!(code.test(codepostal))) {
-        codeErreur.innerHTML="Le code postal ne respecte pas le format valide.";
+        codeErreur.innerHTML = "Le code postal ne respecte pas le format valide.";
         return false;
     } else {
         codeErreur.innerHTML = "";
