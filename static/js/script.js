@@ -145,7 +145,7 @@ function validerVille(){
 
     var ville =document.getElementById("ville").value;
     var msgErrVille =document.getElementById("erreur-adresse");
-    
+
     if(ville === ""){
         msgErrVille.innerHTML="Veuillez remplir le champ de la ville";
         return false;
@@ -169,7 +169,7 @@ function validerCodepostal(){
         return false;
     } else if(!(code.test(codepostal))) {
         codeErreur.innerHTML="Le code postal ne respecte pas le format valide.";
-        return true;
+        return false;
     } else {
         codeErreur.innerHTML = "";
         return true;
