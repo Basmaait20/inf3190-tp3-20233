@@ -106,13 +106,13 @@ function validerDescription(){
 function validerCourriel(){
     var courriel = document.getElementById("courrielproprietaire").value;
     var msgErreurCourriel = document.getElementById("erreur-courriel");
-    const email = new RegExp('^[a-zA-Z0-9.!#$%&\'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$') ;
+    const formatEmail = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/ ;
 
     if (courriel === ""){
-        msgErreurCourriel.innerHTML = "";
+        msgErreurCourriel.innerHTML = "Le champ ne peut pas etre vide";
         return false;
-    } else if (!(courriel.test(email))){
-            msgErreurCourriel.innerHTML = "Le courriel ne respecte pas le format valide: example@gmail.com ";
+    } else if (!formatEmail.test(courriel)){
+        msgErreurCourriel.innerHTML = "Le courriel ne respecte pas le format valide: example@gmail.com ";
             return false;
     } else if (courriel.includes(",")){
         msgErreurCourriel.innerHTML = "Le champ ne doit pas contenir une virgule"
@@ -162,12 +162,12 @@ function validerVille(){
 function validerCodepostal(){
     var code = document.getElementById("code-postal").value;
     var codeErreur = document.getElementById("erreur-codepostal");
-    const codepostal = new RegExp('^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$') ;
+     const codepostal = /^(?!.*[DFIOQU])[A-VXY][0-9][A-Z] ?[0-9][A-Z][0-9]$/ ;
 
     if(code === ""){
         codeErreur.innerHTML = "Le code postal est vide";
         return false;
-    } else if(!(code.test(codepostal))) {
+    } else if(!codepostal.test(code)) {
         codeErreur.innerHTML = "Le code postal ne respecte pas le format valide.";
         return false;
     } else {
