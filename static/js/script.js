@@ -52,7 +52,7 @@ function validerAgeAnimal() {
     }
 }
 
-// fonction pour valider la race
+// Fonction pour valider la race
 function validerRace(){
     var raceAnimal = document.getElementById("raceanimal").value;
     var msgErreurRace = document.getElementById("erreur-race");
@@ -69,7 +69,7 @@ function validerRace(){
     }
 }
    
-//fonction pour valider l'espece
+// Fonction pour valider l'espece
 function validerEspece(){
         var especeAnimal = document.getElementById("especeanimal").value ;
         var msgErreurespece = document.getElementById("erreur-espece");
@@ -86,7 +86,7 @@ function validerEspece(){
         }
 }
 
-//fonction pour valider la description de l'animal
+// Fonction pour valider la description de l'animal
 
 
 function validerDescription(){
@@ -102,7 +102,7 @@ function validerDescription(){
     }
 }
 
-// fonction pour valider le courriel
+// Fonction pour valider le courriel
 function validerCourriel(){
     var courriel = document.getElementById("courrielproprietaire").value;
     var msgErreurCourriel = document.getElementById("erreur-courriel");
@@ -123,7 +123,7 @@ function validerCourriel(){
     }
 }
 
-//fonction pour valider l'adresse
+// Fonction pour valider l'adresse
 function validerAdresse(){
     var adresse = document.getElementById("adresse-recuperation").value;
     var msgErrAdresse = document.getElementById("erreur-adresse");
@@ -140,7 +140,7 @@ function validerAdresse(){
     }
 }
 
-// fonction pour valider la ville
+// Fonction pour valider la ville
 function validerVille(){
 
     var ville = document.getElementById("ville").value;
@@ -158,7 +158,7 @@ function validerVille(){
     }
 }
 
-//fonction pour valider le code postal
+// Fonction pour valider le code postal
 function validerCodepostal(){
     var code = document.getElementById("code-postal").value;
     var codeErreur = document.getElementById("erreur-codepostal");
