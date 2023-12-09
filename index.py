@@ -14,8 +14,10 @@
 
 from flask import Flask
 from flask import render_template
+from flask import request
 from flask import g
 from database import Database
+import random
 
 app = Flask(__name__, static_url_path="", static_folder="static")
 
@@ -35,10 +37,46 @@ def close_connection(exception):
 
 
 @app.route('/')
+def home():
+    animaux = get_db().get_animaux()
+    animaux = random.sample(animaux, 5)
+    return render_template('index.html', animals=animaux)
+
+
+@app.route('/form')
 def form():
     # À remplacer par le contenu de votre choix.
     return render_template('form.html')
 
+
+@app.route('/ajout', methods=['POST'])
+def ajout():
+    db = get_db()
+    nom = request.form.get('nom-animal')
+    espece = request.form.get('especeanimal')
+    
+    
+    return render_template('ajout.html')
+
+@app.route('/animal/<animal_id>')
+def animal(animal_id):
+    animal = get_db().get_animal(animal_id)
+    return render_template('animal.html', animal=animal)
+
+
+@app.route('/search', methods=['POST'])
+def search():
+    query = request.form
+    animaux = get_db().get_animaux()
+    if query.get('option') == "":
+        pass
+    elif query.get('option') == "nom":
+        animaux = [animal for animal in animaux if query.get('search').lower() in animal['nom'].lower()]
+    elif query.get('option') == "espece":
+        animaux = [animal for animal in animaux if query.get('search').lower() in animal['espece'].lower()]
+    elif query.get('option') == "race":
+        animaux = [animal for animal in animaux if query.get('search').lower() in animal['race'].lower()]
+    return render_template('search.html', animals=animaux)
 
 if __name__ == '__main__':
     app.run(debug=True)

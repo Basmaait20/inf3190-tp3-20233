@@ -1,0 +1,31 @@
+<h1> Liste des animaux </h1>
+
+{% for animal in animals %}
+    <a href="/animal/{{ animal.id }}">
+        {{ animal.nom }}
+    </a>
+    <br>
+{% endfor %}
+
+<br>
+<br>
+<br>
+
+<h2> Rechercher un animal </h2>
+
+<form action="/search" method="POST">
+    <select name="option">
+        <option value="">Choisir un critère</option>
+        <option value="nom">Nom</option>
+        <option value="espece">Espèce</option>
+        <option value="race">Race</option>
+    </select>
+    <input type="text" name="search" placeholder="Rechercher un animal">
+    <input type="submit" value="Rechercher">
+</form>
+
+
+<h2> Ajouter un animal </h2>
+
+<a href="/form">Ajouter un animal</a>
+    
