@@ -1,31 +1,43 @@
-<h1> Liste des animaux </h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Accueil</title>
+    </head>
+    <body>
+        <h1> Liste des animaux </h1>
 
-{% for animal in animals %}
-    <a href="/animal/{{ animal.id }}">
+        {% for animal in animals %}
+        <a href="/animal/{{ animal.id }}">
         {{ animal.nom }}
-    </a>
+        </a>
+        <br>
+        {% endfor %}
+
     <br>
-{% endfor %}
+    <br>
+    <br>
 
-<br>
-<br>
-<br>
+        <h2> Rechercher un animal </h2>
 
-<h2> Rechercher un animal </h2>
-
-<form action="/search" method="POST">
-    <select name="option">
+    <form action="/search" method="POST">
+        <select name="option">
         <option value="">Choisir un critère</option>
         <option value="nom">Nom</option>
         <option value="espece">Espèce</option>
         <option value="race">Race</option>
     </select>
-    <input type="text" name="search" placeholder="Rechercher un animal">
-    <input type="submit" value="Rechercher">
-</form>
+<input type="text" name="search" placeholder="Rechercher un animal">
+        <input type="submit" value="Rechercher">
+    </form>
 
 
-<h2> Ajouter un animal </h2>
+        <h2> Formulaire d'adoption </h2>
 
-<a href="/form">Ajouter un animal</a>
+        <a href="/form">Ajouter un animal</a>
     
+    </body>
+</html>
+

@@ -1,10 +1,26 @@
-{% for animal in animals %}
-    <h1>{{ animal.nom }}</h1>
-    <p>{{ animal.description }}</p>
-    <br>
-{% endfor %}
-
-
-<a href="/">
-    Retour à l'accueil
-</a>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Recherche</title>
+    </head>
+    <body>
+        <h3> Le résultat de votre recherche:</h3>
+        {% for animal in animals %}
+        <h1>Nom de l'animal:{{ animal.nom }}</h1>
+        <p>Espèce: {{animal.espece}}</p>
+        <p>Race: {{animal.race}}</p>
+        <p>Age: {{animal.age}}</p>
+        <p>Description: {{ animal.description }}</p>
+        <p>Courriel du propriétaire : <a href="mailto :{{animal.courriel}}"></a> </p>
+        <br>
+        {% endfor %}
+     <!--ajouter une image-->
+    
+    <a href="/">
+        Retour à l'accueil
+    </a> 
+    </body>
+</html>

@@ -51,11 +51,56 @@ def form():
 
 @app.route('/ajout', methods=['POST'])
 def ajout():
+    erreur= ""
     db = get_db()
-    nom = request.form.get('nom-animal')
-    espece = request.form.get('especeanimal')
+    nom = request.form["nom-animal"]
+    espece = request.form["especeanimal"]
+    race = request.form["raceanimal"]
+    age =request.form["age-animal"]
+    description = request.form["descriptionanimal"]
+    email = request.form["courrielproprietaire"]
+    adresse = request.form["adresse-recuperation"]
+    ville = request.form["ville"]
+    codepostal = request.form["code-postal"]
+
+    #valider le formulaire en backend
+    if len(nom) < 3  or len(nom) > 20  :
+        erreur = True
+    elif int(age) < 0 or int(age) > 30  :
+        erreur = True
+    elif len(description) > 500 :
+        erreur = True
+    elif len(email) > 80 :
+        erreur = True
+    elif len(adresse) > 75 :
+        erreur = True
+    elif len(ville) > 75 :
+        erreur = True
+    elif  len(codepostal) > 7 :
+        erreur = True
+    elif "," in nom :
+        erreur = True
+    elif "," in age :
+        erreur = True
+    elif "," in description :
+        erreur = True
+    elif ", " in email :
+        erreur = True
+    elif "," in adresse :
+        erreur = True
+    elif "," in ville :
+        erreur = True
+    elif "," in codepostal :
+        erreur = True
     
-    
+    if erreur :
+        return f"Veuillez remplir les champs invalides"
+        #return render_template("/erreur")
+    #faire la page erreur.html et @app.route
+
+    else :
+        db.ajout_animal(nom, espece, race, age, description,email,adresse,ville,codepostal)
+
     return render_template('ajout.html')
 
 @app.route('/animal/<animal_id>')
@@ -70,6 +115,7 @@ def search():
     animaux = get_db().get_animaux()
     if query.get('option') == "":
         pass
+   
     elif query.get('option') == "nom":
         animaux = [animal for animal in animaux if query.get('search').lower() in animal['nom'].lower()]
     elif query.get('option') == "espece":
@@ -78,5 +124,9 @@ def search():
         animaux = [animal for animal in animaux if query.get('search').lower() in animal['race'].lower()]
     return render_template('search.html', animals=animaux)
 
+
+
 if __name__ == '__main__':
     app.run(debug=True)
+
+

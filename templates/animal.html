@@ -1,5 +1,27 @@
-<h1> Animal: {{ animal.name}} </h1>
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Adoption des animaux</title>
+    </head>
+    <body>
+        <p>Voici les details pour l'animal disponible pour l'adoption:</p>
+       
+        <h1> Nom de l'animal: {{ animal.nom}} </h1>
+        <h2> Age: {{ animal.age}} </h2>
+        <h2> Espèce : {{ animal.espece}}</h2>
+        <h2> Race: {{ animal.race }}</h2>
+        <h2> Description: {{ animal.description}} </h2>
+        <h2>Adresse: {{animal.adresse}}</h2>
+        <h2>Ville : {{animal.ville}}</h2>
+        <h2>Courriel du propriétaire si vous êtes interesser: </h2>
+        <a href="mailto:{{animal.courriel}}">{{animal.courriel}}</a>
+        <br>
+        <a href="/">Retour</a>
+    </body>
+</html>
 
-<h2> Description: {{ animal.description}} </h2>
 
-<a href="/">Retour</a>
+
