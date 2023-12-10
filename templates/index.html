@@ -10,9 +10,13 @@
         <h1> Liste des animaux </h1>
 
         {% for animal in animals %}
+        <br>
+        <img src="/image/{{animal.nom}}.jpg" alt="photo de l'animal">
+        <br>
         <a href="/animal/{{ animal.id }}">
         {{ animal.nom }}
         </a>
+        
         <br>
         {% endfor %}
 

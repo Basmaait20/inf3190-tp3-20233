@@ -114,8 +114,8 @@ def search():
     query = request.form
     animaux = get_db().get_animaux()
     if query.get('option') == "":
-        pass
-   
+        return render_template('404.html'),404
+        #page d'erreur 
     elif query.get('option') == "nom":
         animaux = [animal for animal in animaux if query.get('search').lower() in animal['nom'].lower()]
     elif query.get('option') == "espece":
@@ -124,7 +124,10 @@ def search():
         animaux = [animal for animal in animaux if query.get('search').lower() in animal['race'].lower()]
     return render_template('search.html', animals=animaux)
 
-
+@app.errorhandler(404)
+def not_found(e):
+    return render_template ('404.html'),404
+    #faire la page 404.html
 
 if __name__ == '__main__':
     app.run(debug=True)
