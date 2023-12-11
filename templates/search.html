@@ -9,15 +9,17 @@
     <body>
         <h3> Le résultat de votre recherche:</h3>
         {% for animal in animals %}
+        <!--ajout image-->
+        <img src = "/image/{{animal.nom}}.jpg" alt = "photo de l'animal">
         <h1>Nom de l'animal:{{ animal.nom }}</h1>
         <p>Espèce: {{animal.espece}}</p>
         <p>Race: {{animal.race}}</p>
         <p>Age: {{animal.age}}</p>
         <p>Description: {{ animal.description }}</p>
-        <p>Courriel du propriétaire : <a href="mailto :{{animal.courriel}}"></a></p>
+        <p>Courriel du propriétaire : <a href="mailto :{{animal.courriel}}">{{animal.courriel}}</a></p>
         <br>
         {% endfor %}
-     <!--ajouter une image-->
+     
     
     <a href="/">
         Retour à l'accueil

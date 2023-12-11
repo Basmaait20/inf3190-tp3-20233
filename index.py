@@ -95,7 +95,7 @@ def ajout():
     
     if erreur :
         return f"Veuillez remplir les champs invalides"
-        #return render_template("/erreur")
+        
     #faire la page erreur.html et @app.route
 
     else :
